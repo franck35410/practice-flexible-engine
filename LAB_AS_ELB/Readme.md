@@ -58,7 +58,6 @@ Basic Informations:
 ECS creation preparation:
 Downloading apache2.sh file, from the desktop where you access the FE portal
 https://raw.githubusercontent.com/cloudcoach-orange/practice-flexible-engine/master/LAB_AS_ELB/files/Apache2.sh
-https://obs-formation-imt.oss.eu-west-0.prod-cloud-ocb.orange-business.com/obs-imt-lab2/Apache2.sh
 
 Basic Informations:
 * Region: **Student Project**
