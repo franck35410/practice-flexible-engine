@@ -42,17 +42,14 @@ Basic Informations:
 * Region: **Student Project**
 * Name: **vpc_stud000x**
 * CIDR Block: **192.168.0.0/16**
-* Tag: key=**owner** ;value=**stud000x**
 * Default Subnet:
   * AZ: **eu-west-0a**
   * Name: **subnet-front-stud000x**
-  * CIDR Block: **192.168.0.0/24**
-  * Tag: key=**owner** ;value=**stud000x**  
+  * CIDR Block: **192.168.0.0/24**  
 * Add Subnet:
   * AZ: **eu-west-0b**
   * Name: **subnet-back-stud000x**
   * CIDR Block: **192.168.100.0/24**
-  * Tag: key=**owner** ;value=**stud000x**
 
 ## Security groups creation
 
@@ -81,7 +78,6 @@ Basic Informations:
 * Administrator Passowrd: **P@ssword123**
 * Confirm Password: **P@ssword123**
 * Parameter Template: **Default-MySQL-5.7**
-* Tag: key=**owner** ;value=**stud000x**
 
 
 ## Elastic Cloud Server (ECS) creation
@@ -113,7 +109,8 @@ curl -o importMySQL.sql https://raw.githubusercontent.com/cloudcoach-orange/prac
 curl -o config-db.php https://raw.githubusercontent.com/cloudcoach-orange/practice-flexible-engine/master/LAB_ECS_RDS/files/config-db.php
 ```
 
-Edit the *config-db.php* file and customize *$dbserver* value  with your **PRIVATE IP RDS**:
+Edit the *config-db.php* file and customize *$dbserver* value  with your **PRIVATE IP RDS**.
+Then update your package list and install the MySQL client: 
 ```
 sudo apt-get update
 sudo apt-get install mysql-client -y
@@ -168,6 +165,7 @@ https://github.com/phpmyadmin/phpmyadmin/issues/14332
 ## Resources deletion
 Control the resources created:
 * go to *"My Resources"*
+Then use the *"Service list"* to access your resources
 
 Resources deletion:
 1. Elastic Cloud Server (ECS)
