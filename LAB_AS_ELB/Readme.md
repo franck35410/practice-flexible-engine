@@ -46,6 +46,7 @@ Basic Informations:
   * AZ: **eu-west-0a**
   * Name: **subnet-front-stud000x**
   * CIDR Block: **192.168.0.0/24**
+  * Tag: key=**owner** ;value=**stud000x**
 
 ## Security groups creation
 
@@ -200,6 +201,7 @@ Basic Informations:
   * AZ: **eu-west-0a**
   * Name: **subnet-bench-stud000x**
   * CIDR Block: **172.16.0.0/24**
+  * Tag: key=**owner** ;value=**stud000x**
 
 #### ECS creation
 
