@@ -10,18 +10,18 @@ First you need to set variable in configuration file "setenv.sh", you can find a
 You need at least to change the value of:
 - OS_USER_DOMAIN_ID (line 8)
 - OS_PROJECT_ID (line 9)
-- OS_USERNAME (line 15).
-- S3_ACCESS_KEY_ID (line 17)
-- S3_SECRET_ACCESS_KEY (line 18)  
+- OS_PROJECT_NAME (line 10)
+- OS_USERNAME (line 16).
+- S3_ACCESS_KEY_ID (line 18)
+- S3_SECRET_ACCESS_KEY (line 19)  
 
 If you're not doing on eu-west-0, you also need to change:
 - OS_AUTH_URL (line 5)
-- OS_REGION_NAME (line 12)
+- OS_REGION_NAME (line 13)
 
 
 Then you should source the parameters and enter your API password
 ```shell
-$ vi setenv.sh
 $ source setenv.sh
 Please enter your OpenStack Password:
 ***********
@@ -30,8 +30,8 @@ $
 
 ## Openstackcli
 > you need to install openstackcli for this part.
-> https://docs.openstack.org/newton/user-guide/common/cli-install-openstack-command-line-clients.html
-> https://docs.prod-cloud-ocb.orange-business.com/en-us/devg/sdk/en-us_topic_0070637155.html
+> if you are using linux, juste type "sudo apt install python3-openstackclient"
+> overwise follow openstack documentation https://docs.openstack.org/newton/user-guide/common/cli-install-openstack-command-line-clients.html
 
 OpenStackClient (aka OSC) is a command-line client for OpenStack that brings the command together in a single shell with a uniform command structure.
 
