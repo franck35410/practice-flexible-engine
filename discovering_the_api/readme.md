@@ -135,7 +135,7 @@ $ terraform plan
 $ terraform apply -auto-approve
 ```
 
-When infrastructure is ready, you can edit file to change name of a resource or an IP or anything. After each change you need to reapply, it will show you the change : edition, deletion, deletion with re-creation, etc.
+The deployed infrastructure is described in ".tf" file. If you want, you can edit the file to change a parameter like a name or an IP. After each change you need to reapply, it will show you the change : edition, deletion, deletion with re-creation, etc.
 ```shell
 $ terraform apply -auto-approve
 ```
@@ -168,7 +168,7 @@ $ terraform apply -auto-approve
 > - floating IP is changed by EIP (floating IP + bandwidth)
 > - router is changed by VPC (router with CIDR parameter)
 
-When infrastructure is ready, you can edit file to change name of a resource or an IP or anything. After each change you need to reapply, it will show you the change : edition, deletion, deletion with re-creation, etc.
+The deployed infrastructure is described in ".tf" file. If you want, you can edit the file to change a parameter like a name or an IP. After each change you need to reapply, it will show you the change : edition, deletion, deletion with re-creation, etc.
 ```shell
 $ terraform apply -auto-approve
 ```
@@ -193,16 +193,16 @@ List and show information of bucket
 ```shell
 $ s3cmd ls
 $ s3cmd ls -c s3cmd/.s3cfg
-$ s3cmd info s3://<name_of_bucket>
+$ s3cmd info s3://<name-of-bucket>
 ```
 
 Then create a bucket, upload a local file, delete a file &  the bucket.
 ```shell
-$ s3cmd mb s3://<your_bucket_name>
-$ s3cmd put README.md s3://<new_bucket_name>
-$ s3cmd ls s3://<your_bucket_name>
-$ s3cmd rm s3://<your_bucket_name>/readme.md
-$ s3cmd rb s3://<your_bucket_name>
+$ s3cmd mb s3://<your-bucket-name>
+$ s3cmd put README.md s3://<new-bucket-name>
+$ s3cmd ls s3://<your-bucket-name>
+$ s3cmd rm s3://<your-bucket-name>/readme.md
+$ s3cmd rb s3://<your-bucket-name>
 ```
 
 You can find all the usage at https://s3tools.org/usage
