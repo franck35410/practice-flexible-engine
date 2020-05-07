@@ -137,7 +137,7 @@ $ terraform apply -auto-approve
 
 The deployed infrastructure is described in ".tf" file. If you want, you can edit the file to change a parameter like a name or an IP. After each change you need to reapply, it will show you the change : edition, deletion, deletion with re-creation, etc.
 ```shell
-$ terraform apply -auto-approve
+$ terraform apply
 ```
 
 When you've finished, delete all the resources
@@ -170,7 +170,7 @@ $ terraform apply -auto-approve
 
 The deployed infrastructure is described in ".tf" file. If you want, you can edit the file to change a parameter like a name or an IP. After each change you need to reapply, it will show you the change : edition, deletion, deletion with re-creation, etc.
 ```shell
-$ terraform apply -auto-approve
+$ terraform apply
 ```
 
 When you've finished, delete all the resources
