@@ -7,6 +7,7 @@ export OS_AUTH_URL=https://iam.eu-west-0.prod-cloud-ocb.orange-business.com/v3
 # Domain and Projet ID of the tenant, you can retrieve it from console > top right user connected > My Credential
 export OS_USER_DOMAIN_ID=689f7d4xxxe545ecb2791f4cfbb94f58
 export OS_PROJECT_ID=21aaadf517xxxbe3b485771e26d6d231
+export OS_PROJECT_NAME=eu-west-0_stud0X
 
 # Region should be same of Auth url
 export OS_REGION_NAME="eu-west-0"
