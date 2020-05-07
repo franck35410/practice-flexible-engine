@@ -199,7 +199,7 @@ $ s3cmd info s3://<name-of-bucket>
 Then create a bucket, upload a local file, delete a file &  the bucket.
 ```shell
 $ s3cmd mb s3://<your-bucket-name>
-$ s3cmd put README.md s3://<new-bucket-name>
+$ s3cmd put README.md s3://<your-bucket-name>
 $ s3cmd ls s3://<your-bucket-name>
 $ s3cmd rm s3://<your-bucket-name>/readme.md
 $ s3cmd rb s3://<your-bucket-name>
