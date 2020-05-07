@@ -180,6 +180,10 @@ $ terraform destroy -auto-approve
 
 ## Use Object Storage API with s3cmd
 > S3cmd is a free command line tool and client for uploading, retrieving and managing data in cloud storage service providers that use the S3 protocol.
+> if you are using ubuntu 64bit, you can do 
+```shell
+sudo apt install s3cmd"
+```
 > you can get s3cmd for linux repository or from https://s3tools.org/s3cmd
 > you need to have S3_ACCESS_KEY_ID and S3_SECRET_ACCESS_KEY in the setenv file (and source it)
 
