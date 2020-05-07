@@ -164,9 +164,9 @@ Plan and/or apply to see change and deploy the infrastructure. Before any change
 $ terraform plan
 $ terraform apply -auto-approve
 ```
-> the result is the same as Openstack, but the resource name are different and some api were different:  
-> - floating IP is change by EIP (floating IP + bandiwidth)
-> - router is change by VPC (router with CIDR parameter)
+> the result is the same as Openstack, but the resources name are different and some APIs were different:  
+> - floating IP is changed by EIP (floating IP + bandwidth)
+> - router is changed by VPC (router with CIDR parameter)
 
 When infrastructure is ready, you can edit file to change name of a resource or an IP or anything. After each change you need to reapply, it will show you the change : edition, deletion, deletion with re-creation, etc.
 ```shell
@@ -179,13 +179,13 @@ $ terraform destroy -auto-approve
 ```
 
 ## Use Object Storage API with s3cmd
-> S3cmd is a free command line tool and client for uploading, retrieving and managing data in cloud storage service providers that use the S3 protocol.
-> if you are using ubuntu 64bit, you can do 
+> S3cmd is a free command line tool and client for uploading, retrieving and managing data in cloud storage service providers that use the S3 protocol.  
+> if you are using linux, you can get it from linux. example for ubuntu: 
 ```shell
 sudo apt install s3cmd"
 ```
-> you can get s3cmd for linux repository or from https://s3tools.org/s3cmd
-> you need to have S3_ACCESS_KEY_ID and S3_SECRET_ACCESS_KEY in the setenv file (and source it)
+> or from official website https://s3tools.org/s3cmd  
+> This part will also use sourced setenv with S3_ACCESS_KEY_ID and S3_SECRET_ACCESS_KEY in the setenv file.
 
 Copy the file .s3cfg at the root of your user, or add "-c s3cmd/.s3cfg" at the end of each command.
 
