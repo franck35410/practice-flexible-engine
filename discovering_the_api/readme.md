@@ -109,7 +109,7 @@ The usage of the API like that are more time consuming but allow you to use and 
 ### with openstack provider
 > Documentation of terraform openstack provider https://www.terraform.io/docs/providers/openstack/index.html
 
-Go to terraform-os folder and edit configuration file **config.tf**. Change value of **keypair** to match one existing for your user.
+Go to terraform-os folder and edit configuration file **config.tf**. Change value of variable **keypair** with the name of an existing keypair.
 ```shell
 vi /terraform-os/config.tf
 ```
@@ -139,14 +139,14 @@ $ terraform destroy -auto-approve
 ### with flexibleegine provider
 > Documentation of terraform flexible engine provider https://www.terraform.io/docs/providers/flexibleengine/index.html
 
-Go to terraform-os folder and edit configuration file **config.tf**. Change value of **keypair** to match one existing for your user.
+Go to terraform-fe folder and edit configuration file **config.tf**. Change value of variable **keypair** with the name of an existing keypair.
 ```shell
-vi /terraform-os/config.tf
+vi /terraform-fe/config.tf
 ```
 
 Then go inside the folder to init environment of terraform:
 ```shell
-$ cd /terraform-os
+$ cd /terraform-fe
 $ terraform init
 ```
 
