@@ -104,7 +104,15 @@ The usage of the API like that are more time consuming but allow you to use and 
 
 ## Terraform
 > you need to install terraform for this part.
-> https://learn.hashicorp.com/terraform/getting-started/install.html
+
+If you are using ubuntu 64bit, you can do:
+```shell
+wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
+unzip terraform_0.12.24_linux_amd64.zip
+mv terraform /usr/local/bin/terraform
+```
+
+> if you are using something else, follow official documentation https://learn.hashicorp.com/terraform/getting-started/install.html
 
 ### with openstack provider
 > Documentation of terraform openstack provider https://www.terraform.io/docs/providers/openstack/index.html
