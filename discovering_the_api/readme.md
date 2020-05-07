@@ -182,7 +182,7 @@ $ terraform destroy -auto-approve
 > S3cmd is a free command line tool and client for uploading, retrieving and managing data in cloud storage service providers that use the S3 protocol.  
 > if you are using linux, you can get it from linux. example for ubuntu: 
 ```shell
-sudo apt install s3cmd"
+$ sudo apt install s3cmd
 ```
 > or from official website https://s3tools.org/s3cmd  
 > This part will also use sourced setenv with S3_ACCESS_KEY_ID and S3_SECRET_ACCESS_KEY in the setenv file.
