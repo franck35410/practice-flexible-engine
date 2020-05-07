@@ -62,7 +62,7 @@ $ openstack router list
 
 Delete router
 ```shell
-$ openstack delete <your_router_name>
+$ openstack router delete <your_router_name>
 ```
 
 Openstackcli is an easy way to use the API but having some issue to create a lot of resources as one call means one resource.
