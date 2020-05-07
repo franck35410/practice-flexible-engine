@@ -164,9 +164,9 @@ Plan and/or apply to see change and deploy the infrastructure. Before any change
 $ terraform plan
 $ terraform apply -auto-approve
 ```
-> the result is the same as Openstack, but the resource name are different and some api were different:
-> floating IP is change by EIP (floating IP + bandiwidth)
-> router is change by VPC (router with CIDR parameter)
+> the result is the same as Openstack, but the resource name are different and some api were different:  
+> - floating IP is change by EIP (floating IP + bandiwidth)
+> - router is change by VPC (router with CIDR parameter)
 
 When infrastructure is ready, you can edit file to change name of a resource or an IP or anything. After each change you need to reapply, it will show you the change : edition, deletion, deletion with re-creation, etc.
 ```shell
