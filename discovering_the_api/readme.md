@@ -108,7 +108,7 @@ The usage of the API like that are more time consuming but allow you to use and 
 If you are using ubuntu 64bit, you can do:
 ```shell
 $ wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
-($ sudo apt install unzip)
+$ sudo apt install unzip  (if needed)
 $ unzip terraform_0.12.24_linux_amd64.zip
 $ sudo mv terraform /usr/local/bin/terraform
 ```
