@@ -120,7 +120,7 @@ $ sudo mv terraform /usr/local/bin/terraform
 
 Go to terraform-os folder and edit configuration file **config.tf**. Change value of variable **keypair** with the name of an existing keypair.
 ```shell
-vi terraform-os/config.tf
+$ vi terraform-os/config.tf
 ```
 
 Then go inside the folder to init environment of terraform:
@@ -150,7 +150,7 @@ $ terraform destroy -auto-approve
 
 Go to terraform-fe folder and edit configuration file **config.tf**. Change value of variable **keypair** with the name of an existing keypair.
 ```shell
-vi terraform-fe/config.tf
+$ vi terraform-fe/config.tf
 ```
 
 Then go inside the folder to init environment of terraform:
