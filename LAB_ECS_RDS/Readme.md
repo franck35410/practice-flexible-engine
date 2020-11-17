@@ -126,7 +126,7 @@ Launch this command after replacing *<@IP RDS>* with your **PRIVATE IP RDS**:
 sudo mysql -u root --password -h <@IP RDS> -P 3306 <importMySQL.sql
 ```
 
-* Enter the RDS administrator password **P@ssword123**
+* Enter the RDS administrator password **P@ssword1234**
 
 ## Phpmyadmin installation 
 
@@ -157,7 +157,7 @@ sudo cp /home/cloud/config-db.php /etc/phpmyadmin/
 
 *http://\<EIP\>/phpmyadmin*
 * User: **root**
-* Password: **P@ssword123**
+* Password: **P@ssword1234**
 
 **Note:** If *"phpmyadmin error count(): Parameter must be an array or an object that implements Countable"* go to: 
 
