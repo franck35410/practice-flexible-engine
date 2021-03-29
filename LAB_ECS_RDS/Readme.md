@@ -60,7 +60,7 @@ Basic Informations:
 * Name: **sg_front_stud000x**
   * Add  2 Inbound rules (Port **80**/source **"0.0.0.0/0"**; Port **22**/source **"0.0.0.0/0"**)
 * Name **sg_back_stud000x**
-  * Add  1 Inbound rule (Port **3306**/source **"sg_front_web_stud000x"**)
+  * Add  1 Inbound rule (Port **3306**/source **"sg_front_stud000x"**)
 
 ## Relational Database Service (RDS) creation
 
