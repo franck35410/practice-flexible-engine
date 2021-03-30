@@ -9,6 +9,9 @@ Requested FE Services:
 * 1 KeyPair
 * 2 EIP
 * 2 ECS
+* 1 IMS
+* 1 ELB
+* 1 AS
 * 2 VPC
 * 2 Subnets
 * 2 SG
@@ -73,8 +76,8 @@ Basic Informations:
 * Bandwith: **1000 Mbit/s**
 * Key pair: **kp_stud000x**
 * Advanced Settings: **Configure now**
-* User Data injection: As file
-  * Select File: Apache2.sh
+* User Data injection: **As file**
+  * Select File: **Apache2.sh**
 * Tag: key=**owner** ;value=**stud000x** 
 * ECS Name: **ecs_stud000x**
 
@@ -173,7 +176,7 @@ sudo sed -i -e "s/It works/$HOSTNAME \: It works/" /var/www/html/index.html
   * Policy Type: **Alarm**
   * Alarm Rule: **Create**
   * Rule Name: **as-alarm-sup30**
-  * Trigger Condition: **CPU Usage Avg. > 30%**
+  * Trigger Condition: **CPU Usage Avg. > 10%**
   * Monitoring Interval: **5 minutes**
   * Consecutive Occurences: **1**
   * Scaling Action: **Add 1 instances**
