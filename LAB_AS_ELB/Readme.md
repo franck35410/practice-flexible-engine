@@ -87,8 +87,8 @@ http://\<EIP\>
 
 ## Private Image (IMS) creation
 
-1. First off all, stop the stud000x ECS
-2. Detach the EIP from the stud000x ECS
+1. First off all, stop the stud0x ECS
+2. Detach the EIP from the stud0x ECS
 3. Private Image creation:
   * Basic Informations
     * Type: **System disk image** 
