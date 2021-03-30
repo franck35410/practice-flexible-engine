@@ -44,7 +44,7 @@ Basic Informations:
 * Region: **Student Project**
 * Name: **vpc_stud000x**
 * CIDR Block: **192.168.0.0/16**
-* Tag: key=**owner** ;value=**stud000x**
+* Tag: key=**owner**;value=**stud000x**
 * Default Subnet: 
   * AZ: **eu-west-0a**
   * Name: **subnet-front-stud000x**
@@ -78,7 +78,7 @@ Basic Informations:
 * Advanced Settings: **Configure now**
 * User Data injection: **As file**
   * Select File: **Apache2.sh**
-* Tag: key=**owner** ;value=**stud000x** 
+* Tag: key=**owner**;value=**stud000x** 
 * ECS Name: **ecs_stud000x**
 
 Apache installation verification:
@@ -94,7 +94,7 @@ http://\<EIP\>
     * Type: **System disk image** 
     * ECS: **ecs_stud000x**
     * Name: **img-ecs-stud00x** 
-      * Tag: key=**owner** ;value=**stud000x** 
+      * Tag: key=**owner**;value=**stud000x** 
 
 ## Elastic Load Balance (ELB) creation 
 
@@ -199,7 +199,7 @@ Basic Informations:
 * Region:  **Student Project**
 * Name:  **vpc_bench_stud000x**
 * Name: CIDR Block: **172.16.0.0/24**
-* Tag key: **owner** ; Tag value: **stud000x**
+* Tag key: **owner**; Tag value: **stud000x**
 * Default Subnet:
   * AZ: **eu-west-0a**
   * Name: **subnet-bench-stud000x**
@@ -222,7 +222,7 @@ Basic Informations:
 * Advanced Settings: **Configure now**
 * User Data injection: **As file**
   * Select File: **benchVM.sh**
-* Tag key: **owner** ; Tag value: **stud000x**
+* Tag key: **owner**; Tag value: **stud000x**
 * ECS Name: **ecs_bench_stud000x**
 
 #### Connect to ECS
