@@ -33,40 +33,40 @@ Follow these steps:
 ## Key-pairs creation
 
 Basic Informations:
-* Name: **kp_stud000x**
+* Name: **kp_stud0x**
 * Download the private key file
 
 ## Network creation: Virtual Private Cloud (VPC) and Subnet creation 
 
 Basic Informations:
 * Region: **Student Project**
-* Name: **vpc_stud000x**
+* Name: **vpc_stud0x**
 * CIDR Block: **192.168.0.0/16**
-* Tag: key=**owner** ;value=**stud000x**
+* Tag: key=**owner** ;value=**stud0x**
 * Default Subnet: 
   * AZ: **eu-west-0a**
-  * Name: **subnet-front-stud000x**
+  * Name: **subnet-front-stud0x**
   * CIDR Block: **192.168.0.0/24**
-  * Tag: key=**owner** ;value=**stud000x**  
+  * Tag: key=**owner** ;value=**stud0x**  
 * Add Subnet: 
   * AZ: **eu-west-0b**
-  * Name: **subnet-back-stud000x**
+  * Name: **subnet-back-stud0x**
   * CIDR Block: **192.168.100.0/24**
-  * Tag: key=**owner** ;value=**stud000x**
+  * Tag: key=**owner** ;value=**stud0x**
 
 ## Security groups creation
 
 Basic Informations:
-* Name: **sg_front_stud000x**
+* Name: **sg_front_stud0x**
   * Add  2 Inbound rules (Port **80**/source **"0.0.0.0/0"**; Port **22**/source **"0.0.0.0/0"**)
-* Name **sg_back_stud000x**
-  * Add  1 Inbound rule (Port **3306**/source **"sg_front_stud000x"**)
+* Name **sg_back_stud0x**
+  * Add  1 Inbound rule (Port **3306**/source **"sg_front_stud0x"**)
 
 ## Relational Database Service (RDS) creation
 
 Basic Informations:
 * Region: **Student Project**
-* DB Instance Name: **rds_stud000x**
+* DB Instance Name: **rds_stud0x**
 * DB Engine: **MySQL** 
 * DB Engine Version: **5.7**
 * DB Engine Type: **Primary/Standby**
@@ -76,12 +76,12 @@ Basic Informations:
 * Storage Type: **Common I/O**
 * Storage Space (GB): **40GB**
 * VPC: **vpc_stud000x**
-  * Subnet: **subnet-back-stud000x**
-* Security Group: **sg_back_stud000x**
+  * Subnet: **subnet-back-stud0x**
+* Security Group: **sg_back_stud0x**
 * Administrator Passowrd: **P@ssword1234**
 * Confirm Password: **P@ssword1234**
 * Parameter Template: **Default-MySQL-5.7**
-* Tag: key=**owner** ;value=**stud000x**
+* Tag: key=**owner** ;value=**stud0x**
 
   
 ## Elastic Cloud Server (ECS) creation
@@ -93,14 +93,14 @@ Basic Informations:
 * Image: **Public image**
   * **OBS Ubuntu 18.04(40GB)**
 * Disk: **Common I/O 40GB**
-* VPC: **vpc_stud000x**
-* Primary NIC: **subnet-front-stud000x**
-* Security Goup: **sg_front_stud000x**
+* VPC: **vpc_stud0x**
+* Primary NIC: **subnet-front-stud0x**
+* Security Goup: **sg_front_stud0x**
 * EIP: **Automatically assign**
 * Bandwith: **1000 Mbit/s**
 * Key pair: **kp_stud000x**
 * Advanced Settings: **Do not Configure**
-* ECS Name: **ecs_stud000x**
+* ECS Name: **ecs_stud0x**
 
 ## Connect to ECS
 
