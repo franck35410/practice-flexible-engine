@@ -35,25 +35,25 @@ Follow these steps:
 ## Key-pairs creation
 
 Basic Informations:
-* Name: **kp_stud000x**
+* Name: **kp_stud0x**
 * Download the private key file
 
 ## Network creation: Virtual Private Cloud (VPC) and Subnet creation 
 
 Basic Informations:
 * Region: **Student Project**
-* Name: **vpc_stud000x**
+* Name: **vpc_stud0x**
 * CIDR Block: **192.168.0.0/16**
-* Tag: key=**owner**;value=**stud000x**
+* Tag: key=**owner**;value=**stud0x**
 * Default Subnet: 
   * AZ: **eu-west-0a**
-  * Name: **subnet-front-stud000x**
+  * Name: **subnet-front-stud0x**
   * CIDR Block: **192.168.0.0/24** 
 
 ## Security groups creation
 
 Basic Informations:
-* Name: **sg_front_stud000x**
+* Name: **sg_front_stud0x**
   * Add  2 Inbound rules (Port **80**/source **"0.0.0.0/0"**; Port **22**/source **"0.0.0.0/0"**)
   
 ## Elastic Cloud Server (ECS) creation
@@ -69,17 +69,17 @@ Basic Informations:
 * Image: **Public image**
   * **OBS Ubuntu 16.04(40GB)**
 * Disk: **Common I/O 40GB**
-* VPC: **vpc_stud000x**
-* Primary NIC: **subnet-front-stud000x**
-* Security Goup: **sg_front_stud000x**
+* VPC: **vpc_stud0x**
+* Primary NIC: **subnet-front-stud0x**
+* Security Goup: **sg_front_stud0x**
 * EIP: **Automatically assign**
 * Bandwith: **1000 Mbit/s**
-* Key pair: **kp_stud000x**
+* Key pair: **kp_stud0x**
 * Advanced Settings: **Configure now**
 * User Data injection: **As file**
   * Select File: **Apache2.sh**
-* Tag: key=**owner**;value=**stud000x** 
-* ECS Name: **ecs_stud000x**
+* Tag: key=**owner**;value=**stud0x** 
+* ECS Name: **ecs_stud0x**
 
 Apache installation verification:
 
@@ -93,8 +93,8 @@ http://\<EIP\>
   * Basic Informations
     * Type: **System disk image** 
     * ECS: **ecs_stud000x**
-    * Name: **img-ecs-stud00x** 
-      * Tag: key=**owner**;value=**stud000x** 
+    * Name: **img-ecs-stud0x** 
+      * Tag: key=**owner**;value=**stud0x** 
 
 ## Elastic Load Balance (ELB) creation 
 
@@ -103,10 +103,10 @@ Basic Informations:
 * Region:  **Student Project**
 * Name: **elb_stud000x**
 * Network Type: **Public network**
-* VPC: **vpc_stud000x**
+* VPC: **vpc_stud0x**
 * EIP: **Use existing** (select the EIP)
 * **Create Now**
-* Select the Classic ELB **elb_stud000x**
+* Select the Classic ELB **elb_stud0x**
   * **Add Listeners**
   * Name: **listener_stud000x_web**
   * Frontend Protocol/Port: **HTTP/80**
@@ -119,9 +119,9 @@ Basic Informations:
   * Healthy Threshold: **3**
   * Unhealthy Threshold: **3**
   * Check Path: **/**
-* Select the Classic ELB **elb_stud000x**
+* Select the Classic ELB **elb_stud0x**
   * **Add Listeners**
-  * Name: **listener_stud000x_ssh**
+  * Name: **listener_stud0x_ssh**
   * Frontend Protocol/Port: **TCP/22**
   * Backend Protocol/Port: **TCP/22**
   * Load Balancing Algorithm: **Round Robin**
@@ -138,33 +138,33 @@ Basic Informations:
 Basic Informations:
 * Create AS Groups 
   * Region: **Student Project**
-  * Name: **as-group-stud000x**
+  * Name: **as-group-stud0x**
   * Max. Instances: **3**
   * Expected Instances: **1**
   * Min. Instances: **1**
   * AZ: **eu-west-0a and eu-west-0b**
-  * VPC: **vpc_stud000x**
-  * Subnet: **subnet-front-stud000x**
+  * VPC: **vpc_stud0x**
+  * Subnet: **subnet-front-stud0x**
   * Load Balancing: **Classic load balancer**
-    * Load Balancer: **elb_stud000x**
-    * Listener: **listener_stud000x_ssh**
+    * Load Balancer: **elb_stud0x**
+    * Listener: **listener_stud0x_ssh**
   * Load Balancing: **Classic load balancer**
-    * Load Balancer: **elb_stud000x**
-    * Listener: **listener_stud000x_web**
+    * Load Balancer: **elb_stud0x**
+    * Listener: **listener_stud0x_web**
   * Health Check Method: **ELB health check**
   * Health Check Interval: **5 minutes**
   * Instance Removal Policy: **Oldest Instance created from on the oldest AS configuration**
   * Release EIP on Instance Removal: **Yes**
 * ADD AS Configuration 
-  * Name: **as-config-stud000x**
+  * Name: **as-config-stud0x**
   * Configuration Template: **Create a new specification template**
   * ECS Type: **s3.small.1**
   * **Private Image**
-  * Image: **img-ecs-stud00x(40 GB)**
+  * Image: **img-ecs-stud0x(40 GB)**
   * Disk: **Common I/O 40GB**
-  * Security Goup: **sg_front_stud000x**
+  * Security Goup: **sg_front_stud0x**
   * EIP: **Do not use**
-  * Key Pair: **kp_stud000x**
+  * Key Pair: **kp_stud0x**
   * Advanced Settings: **Configure now**
     * **As text**
 ```
@@ -199,10 +199,10 @@ Basic Informations:
 * Region:  **Student Project**
 * Name:  **vpc_bench_stud000x**
 * Name: CIDR Block: **172.16.0.0/24**
-* Tag key: **owner**; Tag value: **stud000x**
+* Tag key: **owner**; Tag value: **stud0x**
 * Default Subnet:
   * AZ: **eu-west-0a**
-  * Name: **subnet-bench-stud000x**
+  * Name: **subnet-bench-stud0x**
   * CIDR Block: **172.16.0.0/24**
 
 #### ECS creation
@@ -213,17 +213,17 @@ Basic Informations:
 * Flavor: **s3.xlarge.4**
 * Image: **Public image**
   * **OBS Ubuntu 18.04(40GB)**
-* VPC: **vpc_bench_stud000x**
-* Primary NIC: **subnet-bench-stud000x**
-* Security Goup: **sg_front_stud000x**
+* VPC: **vpc_bench_stud0x**
+* Primary NIC: **subnet-bench-stud0x**
+* Security Goup: **sg_front_stud0x**
 * EIP: **Automatically assign**
 * Bandwith: **1000 Mbit/s**
-* Key pair: **kp_stud000x**
+* Key pair: **kp_stud0x**
 * Advanced Settings: **Configure now**
 * User Data injection: **As file**
   * Select File: **benchVM.sh**
-* Tag key: **owner**; Tag value: **stud000x**
-* ECS Name: **ecs_bench_stud000x**
+* Tag key: **owner**; Tag value: **stud0x**
+* ECS Name: **ecs_bench_stud0x**
 
 #### Connect to ECS
 
