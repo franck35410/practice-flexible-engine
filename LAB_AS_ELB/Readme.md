@@ -101,14 +101,14 @@ http://\<EIP\>
 Basic Informations:
 * **Create Classic Load Balancer** 
 * Region:  **Student Project**
-* Name: **elb_stud000x**
+* Name: **elb_stud0x**
 * Network Type: **Public network**
 * VPC: **vpc_stud0x**
 * EIP: **Use existing** (select the EIP)
 * **Create Now**
 * Select the Classic ELB **elb_stud0x**
   * **Add Listeners**
-  * Name: **listener_stud000x_web**
+  * Name: **listener_stud0x_web**
   * Frontend Protocol/Port: **HTTP/80**
   * Backend Protocol/Port: **HTTP/80**
   * Load Balancing Algorithm: **Round Robin**
@@ -197,7 +197,7 @@ https://obs-formation-imt.oss.eu-west-0.prod-cloud-ocb.orange-business.com/obs-i
 
 Basic Informations:
 * Region:  **Student Project**
-* Name:  **vpc_bench_stud000x**
+* Name:  **vpc_bench_stud0x**
 * Name: CIDR Block: **172.16.0.0/24**
 * Tag key: **owner**; Tag value: **stud0x**
 * Default Subnet:
@@ -227,21 +227,21 @@ Basic Informations:
 
 #### Connect to ECS
 
-1. Accessing the created ECS  ecs_bench_stud000x (with ECS EIP) and Apache server (with ELB EIP): [Logging in to an ECS](https://docs.prod-cloud-ocb.orange-business.com/en-us/usermanual/ecs/en-us_topic_0092494193.html)
+1. Accessing the created ECS  ecs_bench_stud0x (with ECS EIP) and Apache server (with ELB EIP): [Logging in to an ECS](https://docs.prod-cloud-ocb.orange-business.com/en-us/usermanual/ecs/en-us_topic_0092494193.html)
 
 2. From Apache server session launch this command:
 ```
 top
 ```
-3. From ECS  ecs_bench_stud000x session launch this command after replacing \<ELB EIP\> with the right EIP: 
+3. From ECS  ecs_bench_stud0x session launch this command after replacing \<ELB EIP\> with the right EIP: 
 ```
 while (true); do ab -k -n 100000000 -c 1000 http://<ELB EIP>/index.html; done
 ```
-4. Notice the cpu consumption increase on Apache server and also the CPU Usage of AS GROUPs *as-group-stud000x* (AS GROUPS + as-group-stud000x + Monitoring) .
+4. Notice the cpu consumption increase on Apache server and also the CPU Usage of AS GROUPs *as-group-stud0x* (AS GROUPS + as-group-stud0x + Monitoring) .
 
-5. After few minutes, notice the increase of Number of instances (AS GROUPS + as-group-stud000x + Monitoring).
+5. After few minutes, notice the increase of Number of instances (AS GROUPS + as-group-stud0x + Monitoring).
 
-6. stop the **ecs_bench_stud000x**
+6. stop the **ecs_bench_stud0x**
 
 7. In a HTTP navigator reload several time the page http://\<ELB EIP\>, and notice the change of ECS in the top of the page
 
