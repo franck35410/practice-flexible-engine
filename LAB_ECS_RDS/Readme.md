@@ -44,12 +44,10 @@ Basic Informations:
 * CIDR Block: **192.168.0.0/16**
 * Tag: key=**owner**;value=**stud0x**
 * Default Subnet: 
-  * AZ: **eu-west-0a**
   * Name: **subnet-front-stud0x**
   * CIDR Block: **192.168.0.0/24**
   * Tag: key=**owner**;value=**stud0x**  
 * Add Subnet: 
-  * AZ: **eu-west-0b**
   * Name: **subnet-back-stud0x**
   * CIDR Block: **192.168.100.0/24**
   * Tag: key=**owner**;value=**stud0x**
@@ -78,7 +76,7 @@ Basic Informations:
 * VPC: **vpc_stud000x**
   * Subnet: **subnet-back-stud0x**
 * Security Group: **sg_back_stud0x**
-* Administrator Passowrd: **P@ssword1234**
+* Administrator Password: **P@ssword1234**
 * Confirm Password: **P@ssword1234**
 * Parameter Template: **Default-MySQL-5.7**
 * Tag: key=**owner**;value=**stud0x**
