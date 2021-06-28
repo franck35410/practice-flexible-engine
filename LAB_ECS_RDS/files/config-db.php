@@ -1,6 +1,6 @@
 <?php
 $dbuser='root';
-$dbpass='P@ssword123';
+$dbpass='P@ssword1234';
 $basepath='';
 $dbname='formation';
 $dbserver='<IP RDS>';
