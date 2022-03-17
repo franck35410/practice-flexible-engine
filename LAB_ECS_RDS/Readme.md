@@ -73,7 +73,7 @@ Basic Informations:
 * Instance Class: **1vCPU/4GB**
 * Storage Type: **Common I/O**
 * Storage Space (GB): **40GB**
-* VPC: **vpc_stud000x**
+* VPC: **vpc_stud0x**
   * Subnet: **subnet-back-stud0x**
 * Security Group: **sg_back_stud0x**
 * Administrator Password: **P@ssword1234**
@@ -95,8 +95,8 @@ Basic Informations:
 * Primary NIC: **subnet-front-stud0x**
 * Security Goup: **sg_front_stud0x**
 * EIP: **Automatically assign**
-* Bandwith: **1000 Mbit/s**
-* Key pair: **kp_stud000x**
+* Bandwith: **100 Mbit/s**
+* Key pair: **kp_stud0x**
 * Advanced Settings: **Do not Configure**
 * ECS Name: **ecs_stud0x**
 
@@ -173,4 +173,5 @@ Resources deletion:
 3. Security Groups (SG)
 4. Subnets
 5. Virtual Private Cloud (VPC)
+6. Key Pair
 
