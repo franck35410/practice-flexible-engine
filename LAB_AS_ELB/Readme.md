@@ -99,14 +99,14 @@ http://\<EIP\>
 ## Elastic Load Balance (ELB) creation 
 
 Basic Informations:
-* **Create Classic Load Balancer** 
+* **Create Elastic Load Balancer** 
 * Region:  **Student Project**
 * Name: **elb_stud0x**
 * Network Type: **Public network**
 * VPC: **vpc_stud0x**
 * EIP: **Use existing** (select the EIP)
 * **Create Now**
-* Select the Classic ELB **elb_stud0x**
+* Select the Elastic ELB **elb_stud0x**
   * **Add Listeners**
   * Name: **listener_stud0x_web**
   * Frontend Protocol/Port: **HTTP/80**
