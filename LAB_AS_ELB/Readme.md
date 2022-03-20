@@ -175,7 +175,7 @@ sudo sed -i -e "s/It works/$HOSTNAME \: It works/" /var/www/html/index.html
   * Policy Name: **as-policy-cpu-usage**
   * Policy Type: **Alarm**
   * Alarm Rule: **Create**
-  * Rule Name: **as-alarm-sup10**
+  * Rule Name: **as-alarm-sup05**
   * Trigger Condition: **CPU Usage Avg. >= 5%**
   * Monitoring Interval: **5 minutes**
   * Consecutive Occurences: **1**
