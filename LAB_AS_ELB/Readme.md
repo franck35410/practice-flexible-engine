@@ -145,7 +145,7 @@ Basic Informations:
   * AZ: **eu-west-0a and eu-west-0b**
   * VPC: **vpc_stud0x**
   * Subnet: **subnet-front-stud0x**
-  * Load Balancing: **Classic load balancer**
+  * Load Balancing: **Enhanced load balancer**
     * Load Balancer: **elb_stud0x**
     * Listener: **listener_stud0x_ssh**
   * Load Balancing: **Classic load balancer**
