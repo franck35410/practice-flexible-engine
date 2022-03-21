@@ -235,7 +235,7 @@ top
 ```
 3. From ECS  ecs_bench_stud0x session launch this command after replacing \<ELB EIP\> with the right EIP: 
 ```
-while (true); do ab -k -n 100000000 -c 1000 http://<ELB EIP>/index.html; done
+while (true); do ab -k -n 100000000 -c 1010 http://<ELB EIP>/index.html; done
 ```
 4. Notice the cpu consumption increase on Apache server and also the CPU Usage of AS GROUPs *as-group-stud0x* (AS GROUPS + as-group-stud0x + Monitoring) .
 
