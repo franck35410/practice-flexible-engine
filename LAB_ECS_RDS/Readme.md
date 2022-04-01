@@ -70,7 +70,7 @@ Basic Informations:
 * DB Engine Type: **Primary/Standby**
 * Primary AZ: **eu-west-0b**
 * Standby AZ: **eu-west-0a**
-* Instance Class: **1vCPU/4GB**
+* Instance Class(General-enhanced): **1vCPU/4GB**
 * Storage Type: **Common I/O**
 * Storage Space (GB): **40GB**
 * VPC: **vpc_stud0x**
