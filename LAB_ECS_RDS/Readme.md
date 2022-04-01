@@ -75,7 +75,7 @@ Basic Informations:
 * Storage Space (GB): **40GB**
 * Disk Encryption: Disable
 * VPC: **vpc_stud0x**
-  * Subnet: **subnet-back-stud0x**
+* Subnet: **subnet-back-stud0x**
 * Security Group: **sg_back_stud0x**
 * Administrator Password: **P@ssword1234**
 * Confirm Password: **P@ssword1234**
