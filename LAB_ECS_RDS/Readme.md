@@ -90,8 +90,8 @@ Basic Informations:
 * AZ: **eu-west-0a**
 * Flavor: **s3.small.1**
 * Image: **Public image**
-  * Select OS: **Ubuntu**
-  * Select OS version: **OBS Ubuntu 18.04(40GB)**
+  * OS: **Ubuntu**
+  * OS version: **OBS Ubuntu 18.04(40GB)**
 * System Disk: **Common I/O 40GB**
 * VPC: **vpc_stud0x**
 * Primary NIC: **subnet-front-stud0x**
