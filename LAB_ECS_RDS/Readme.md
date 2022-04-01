@@ -73,6 +73,7 @@ Basic Informations:
 * Instance Class(General-enhanced): **1vCPU/4GB**
 * Storage Type: **Common I/O**
 * Storage Space (GB): **40GB**
+* Disk Encryption: Disable
 * VPC: **vpc_stud0x**
   * Subnet: **subnet-back-stud0x**
 * Security Group: **sg_back_stud0x**
