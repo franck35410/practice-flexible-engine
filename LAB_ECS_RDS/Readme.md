@@ -33,14 +33,14 @@ Follow these steps:
 ## Key-pairs creation
 
 Basic Informations:
-* Name: **kp_stud0x**
+* Name: **kp-stud0x**
 * Download the private key file
 
 ## Network creation: Virtual Private Cloud (VPC) and Subnet creation 
 
 Basic Informations:
 * Region: **Student Project**
-* Name: **vpc_stud0x**
+* Name: **vpc-stud0x**
 * CIDR Block: **192.168.0.0/16**
 * Tag: key=**owner**;value=**stud0x**
 * Default Subnet: 
