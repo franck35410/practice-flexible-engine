@@ -73,7 +73,7 @@ Basic Informations:
 * Primary NIC: **subnet-front-stud0x**
 * Security Goup: **sg_front_stud0x**
 * EIP: **Automatically assign**
-* Bandwith: **1000 Mbit/s**
+* Bandwith: **100 Mbit/s**
 * Key pair: **kp_stud0x**
 * Advanced Settings: **Configure now**
 * User Data injection: **As file**
