@@ -44,11 +44,11 @@ Basic Informations:
 * CIDR Block: **192.168.0.0/16**
 * Tag: key=**owner**;value=**stud0x**
 * Default Subnet: 
-  * Name: **subnet-front-stud0x**
+  * Name: **subnet_front_stud0x**
   * CIDR Block: **192.168.0.0/24**
   * Tag: key=**owner**;value=**stud0x**  
 * Add Subnet: 
-  * Name: **subnet-back-stud0x**
+  * Name: **subnet_back_stud0x**
   * CIDR Block: **192.168.100.0/24**
   * Tag: key=**owner**;value=**stud0x**
 
