@@ -90,12 +90,13 @@ Basic Informations:
 * AZ: **eu-west-0a**
 * Flavor: **s3.small.1**
 * Image: **Public image**
-  * **OBS Ubuntu 18.04(40GB)**
-* Disk: **Common I/O 40GB**
+  * Select OS: **Ubuntu**
+  * Select OS version: **OBS Ubuntu 18.04(40GB)**
+* System Disk: **Common I/O 40GB**
 * VPC: **vpc_stud0x**
 * Primary NIC: **subnet-front-stud0x**
 * Security Goup: **sg_front_stud0x**
-* EIP: **Automatically assign**
+* EIP: **Auto assign**
 * Bandwith: **100 Mbit/s**
 * Key pair: **kp_stud0x**
 * Advanced Settings: **Do not Configure**
