@@ -92,6 +92,7 @@ http://\<EIP\>
 3. Private Image creation:
   * Basic Informations
     * Type: **System disk image** 
+    * Source: **ECS**
     * ECS: **ecs_stud0x**
     * Name: **img-ecs-stud0x** 
       * Tag: key=**owner**;value=**stud0x** 
