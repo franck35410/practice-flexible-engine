@@ -125,7 +125,7 @@ Basic Informations:
   * Name: **listener_stud0x_ssh**
   * Frontend Protocol/Port: **TCP/22**
   * Backend Protocol/Port: **TCP/22**
-  * Load Balancing Algorithm: **Round Robin**
+  * Load Balancing Algorithm: **Weighted round robin**
   * Sticky Session: **yes**
   * Stickiness Duration (min): **5** 
   * Health Check Protocol/Port: **TCP/22**
