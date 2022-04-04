@@ -112,7 +112,7 @@ Basic Informations:
   * Name: **listener_stud0x_web**
   * Frontend Protocol/Port: **HTTP/80**
   * Backend Protocol/Port: **HTTP/80**
-  * Load Balancing Algorithm: **Round Robin**
+  * Load Balancing Algorithm: **Weighted round robin**
   * Sticky Session: **no**
   * Health Check Protocol/Port: **HTTP/80**
   * Interval (s): **5**
