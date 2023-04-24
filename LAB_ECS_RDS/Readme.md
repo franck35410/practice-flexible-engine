@@ -91,7 +91,7 @@ Basic Informations:
 * Flavor: **s3.small.1**
 * Image: **Public image**
   * OS: **Ubuntu**
-  * OS version: **OBS Ubuntu 18.04(40GB)**
+  * OS version: **OBS Ubuntu 16.04(40GB)**
 * System Disk: **Common I/O 40GB**
 * VPC: **vpc_stud0x**
 * Primary NIC: **subnet-front-stud0x**
