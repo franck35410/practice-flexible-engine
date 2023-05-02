@@ -66,11 +66,11 @@ Basic Informations:
 * Region: **Student Project**
 * DB Instance Name: **rds_stud0x**
 * DB Engine: **MySQL** 
-* DB Engine Version: **5.7**
+* DB Engine Version: **8.0**
 * DB Engine Type: **Primary/Standby**
 * Primary AZ: **eu-west-0b**
 * Standby AZ: **eu-west-0a**
-* Instance Class(General-enhanced): **1vCPU/4GB**
+* Instance Class(General-enhanced II ): **2vCPU/4GB**
 * Storage Type: **Common I/O**
 * Storage Space (GB): **40GB**
 * Disk Encryption: Disable
@@ -79,7 +79,7 @@ Basic Informations:
 * Security Group: **sg_back_stud0x**
 * Administrator Password: **P@ssword1234**
 * Confirm Password: **P@ssword1234**
-* Parameter Template: **Default-MySQL-5.7**
+* Parameter Template: **Default-MySQL-8.0**
 * Tag: key=**owner**;value=**stud0x**
 
   
@@ -88,10 +88,10 @@ Basic Informations:
 Basic Informations:
 * Region: **Student Project**
 * AZ: **eu-west-0a**
-* Flavor: **s3.small.1**
+* Flavor: **s3.medium.2**
 * Image: **Public image**
   * OS: **Ubuntu**
-  * OS version: **OBS Ubuntu 16.04(40GB)**
+  * OS version: **OBS Ubuntu 20.04(40GB)**
 * System Disk: **Common I/O 40GB**
 * VPC: **vpc_stud0x**
 * Primary NIC: **subnet-front-stud0x**
@@ -105,6 +105,14 @@ Basic Informations:
 ## Connect to ECS
 
 Accessing the created ECS (use the EIP, keypair and the 'cloud' user): [Logging in to an ECS](https://docs.prod-cloud-ocb.orange-business.com/en-us/usermanual/ecs/en-us_topic_0092494193.html)
+```
+ssh -i <KEYPAIR> cloud@<EIP>
+```
+From ECS session launch these commands:
+```
+sudo apt-get update
+sudo apt-get install vim -y
+```
 
 ## Database Mysql creation 
 Downloading files, from ECS session launch these 2 commands:
@@ -114,12 +122,12 @@ curl -o config-db.php https://obs-formation-imt.oss.eu-west-0.prod-cloud-ocb.ora
 ```
 
 Edit the *config-db.php* file and customize *$dbserver* value  with your **PRIVATE IP RDS**:
+
 ```
-sudo apt-get update
+vim config-db.php
 sudo apt-get install mysql-client -y
 ```
 
-* Restart services during package upgrades without asking? **YES**
 
 Launch this command after replacing *<@IP RDS>* with your **PRIVATE IP RDS**:
 ```
@@ -130,8 +138,6 @@ sudo mysql -u root --password -h <@IP RDS> -P 3306 <importMySQL.sql
 
 ## Phpmyadmin installation 
 
-### Phpmyadmin installation
-
 From ECS session launch this command:
 ```
 sudo apt-get install phpmyadmin -y
@@ -139,12 +145,14 @@ sudo apt-get install phpmyadmin -y
 * Select **apache2** with space bar
 * Configure database for phpmyadmin with dbconfig-common? **No**
 
+
 ### Phpmyadmin /Mysql authentification
 
 From ECS session launch these commands:
 ```
 sudo cp /etc/phpmyadmin/config-db.php /etc/phpmyadmin/config-db.php.org
 sudo cp /home/cloud/config-db.php /etc/phpmyadmin/
+sudo service apache2 restart
 ```
 
 ## Test
