@@ -88,11 +88,11 @@ Basic Informations:
 Basic Informations:
 * Region: **Student Project**
 * AZ: **eu-west-0a**
-* Flavor: **s3.medium.2**
+* Flavor: **s6.medium.2**
 * Image: **Public image**
   * OS: **Ubuntu**
-  * OS version: **OBS Ubuntu 20.04(40GB)**
-* System Disk: **Common I/O 40GB**
+  * OS version: **OBS Ubuntu 22.04(40GB)**
+* System Disk: **High I/O 40GB**
 * VPC: **vpc_stud0x**
 * Primary NIC: **subnet-front-stud0x**
 * Security Goup: **sg_front_stud0x**
@@ -140,7 +140,7 @@ sudo mysql -u root --password -h <@IP RDS> -P 3306 <importMySQL.sql
 
 From ECS session launch this command:
 ```
-sudo apt-get install phpmyadmin -y
+sudo apt-get install phpmyadmin libapache2-mod-php8.1 -y
 ```
 * Select **apache2** with space bar
 * Configure database for phpmyadmin with dbconfig-common? **No**
@@ -150,6 +150,7 @@ sudo apt-get install phpmyadmin -y
 
 From ECS session launch these commands:
 ```
+sudo systemctl restart apache2
 sudo cp /etc/phpmyadmin/config-db.php /etc/phpmyadmin/config-db.php.org
 sudo cp /home/cloud/config-db.php /etc/phpmyadmin/
 sudo service apache2 restart
