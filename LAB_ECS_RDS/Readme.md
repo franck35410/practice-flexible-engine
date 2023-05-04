@@ -41,23 +41,25 @@ Basic Informations:
 Basic Informations:
 * Region: **Student Project**
 * Name: **vpc_stud0x**
-* CIDR Block: **192.168.0.0/16**
+* CIDR Block: **192.168.0.0/24**
 * Tag: key=**owner**;value=**stud0x**
 * Default Subnet: 
   * Name: **subnet_front_stud0x**
-  * CIDR Block: **192.168.0.0/24**
+  * CIDR Block: **192.168.0.0/25**
   * Tag: key=**owner**;value=**stud0x**  
 * Add Subnet: 
   * Name: **subnet_back_stud0x**
-  * CIDR Block: **192.168.100.0/24**
+  * CIDR Block: **192.168.0.128/25**
   * Tag: key=**owner**;value=**stud0x**
 
 ## Security groups creation
 
 Basic Informations:
 * Name: **sg_front_stud0x**
+* Template: **Custom**
   * Add  2 Inbound rules (Port **80**/source **"0.0.0.0/0"**; Port **22**/source **"0.0.0.0/0"**)
 * Name **sg_back_stud0x**
+* Template: **Custom**
   * Add  1 Inbound rule (Port **3306**/source **"sg_front_stud0x"**)
 
 ## Relational Database Service (RDS) creation
@@ -70,16 +72,18 @@ Basic Informations:
 * DB Engine Type: **Primary/Standby**
 * Primary AZ: **eu-west-0b**
 * Standby AZ: **eu-west-0a**
+* Time Zone:  **UTC+02:00**
 * Instance Class(General-enhanced II): **2vCPU/4GB**
-* Storage Type: **Common I/O**
+* Storage Type: **Ultra I/O**
 * Storage Space (GB): **40GB**
-* Disk Encryption: Disable
+* Disk Encryption: **Disable**
 * VPC: **vpc_stud0x**
 * Subnet: **subnet-back-stud0x**
 * Security Group: **sg_back_stud0x**
 * Administrator Password: **P@ssword1234**
 * Confirm Password: **P@ssword1234**
 * Parameter Template: **Default-MySQL-8.0**
+* Table Name: **Case insensitive**
 * Tag: key=**owner**;value=**stud0x**
 
   
@@ -92,7 +96,7 @@ Basic Informations:
 * Image: **Public image**
   * OS: **Ubuntu**
   * OS version: **OBS Ubuntu 22.04(40GB)**
-* System Disk: **High I/O 40GB**
+* System Disk: **Common I/O 40GB**
 * VPC: **vpc_stud0x**
 * Primary NIC: **subnet-front-stud0x**
 * Security Goup: **sg_front_stud0x**
