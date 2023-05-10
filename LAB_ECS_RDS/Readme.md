@@ -41,15 +41,15 @@ Basic Informations:
 Basic Informations:
 * Region: **Student Project**
 * Name: **vpc_stud0x**
-* CIDR Block: **192.168.0.0/24**
+* CIDR Block: **192.168.0.0/16**
 * Tag: key=**owner**;value=**stud0x**
 * Default Subnet: 
   * Name: **subnet_front_stud0x**
-  * CIDR Block: **192.168.0.0/25**
+  * CIDR Block: **192.168.0.0/24**
   * Tag: key=**owner**;value=**stud0x**  
 * Add Subnet: 
   * Name: **subnet_back_stud0x**
-  * CIDR Block: **192.168.0.128/25**
+  * CIDR Block: **192.168.0.0/24**
   * Tag: key=**owner**;value=**stud0x**
 
 ## Security groups creation
