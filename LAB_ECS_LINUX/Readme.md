@@ -29,27 +29,27 @@ Follow these steps:
 ## Key-pair creation
 
 Basic Informations:
-* Name: **kp_stud000x**
+* Name: **kp_stud0x**
 * Download the private key file
 
 ## Network creation: Virtual Private Cloud (VPC) and Subnet creation 
 
 Basic Informations:
 * Region: **Student Project**
-* Name: **vpc_stud000x**
+* Name: **vpc_stud0x**
 * CIDR Block: **192.168.0.0/16**
-* Tag: key=**owner** ;value=**stud000x**
+* Tag: key=**owner** ;value=**stud0x**
 * Default Subnet: 
   * AZ: **eu-west-0a**
-  * Name: **subnet-ecs-stud000x**
+  * Name: **subnet-ecs-stud0x**
   * CIDR Block: **192.168.0.0/24**
-  * Tag: key=**owner** ;value=**stud000x**  
+  * Tag: key=**owner** ;value=**stud0x**  
 
 
 ## Security groups creation
 
 Basic Informations:
-* Name: **sg_ecs_stud000x**
+* Name: **sg_ecs_stud0x**
   * Add  1 Inbound rule (Port **22**/source **"0.0.0.0/0"**)
 
   
@@ -62,15 +62,15 @@ Basic Informations:
 * Image: **Public image**
   * **OBS Debian 9.0(40GB)**
 * Disk: **Common I/O 100GB**
-* VPC: **vpc_stud000x**
-* Primary NIC: **subnet-ecs-stud000x**
-* Security Goup: **sg_ecs_stud000x**
+* VPC: **vpc_stud0x**
+* Primary NIC: **subnet-ecs-stud0x**
+* Security Goup: **sg_ecs_stud0x**
 * EIP: **Automatically assign**
-* Bandwith: **1000 Mbit/s**
-* Key pair: **kp_stud000x**
+* Bandwith: **100 Mbit/s**
+* Key pair: **kp_stud0x**
 * Advanced Settings: **Do not Configure**
-* ECS Name: **ecs_stud000x**
-* Tag: key=**owner** ;value=**stud000x**
+* ECS Name: **ecs_stud0x**
+* Tag: key=**owner** ;value=**stud0x**
 
 ## Connect to ECS via ssh
 
