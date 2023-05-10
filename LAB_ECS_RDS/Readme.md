@@ -49,7 +49,7 @@ Basic Informations:
   * Tag: key=**owner**;value=**stud0x**  
 * Add Subnet: 
   * Name: **subnet_back_stud0x**
-  * CIDR Block: **192.168.0.0/24**
+  * CIDR Block: **192.168.100.0/24**
   * Tag: key=**owner**;value=**stud0x**
 
 ## Security groups creation
