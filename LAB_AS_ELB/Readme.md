@@ -2,10 +2,10 @@
 
 ## Description
 
-Deploying a apache server with a Auto Scalling (AS) and Elastic Load Balance (ELB). 
-
+Deploying a apache server with a Auto Scalling (AS) and Elastic Load Balance (ELB).
 
 Requested FE Services:
+
 * 1 KeyPair
 * 2 EIP
 * 2 ECS
@@ -16,70 +16,85 @@ Requested FE Services:
 * 2 Subnets
 * 2 SG
 
-## Targeted architecture 
+## Targeted architecture
+
 ![Infra_AS_ELB](images/Infra_AS_ELB.png)
 
 ## Procedure
 
 Follow these steps:
+
 1. Key-pairs creation
-2. Network creation
-3. Security groups creation
-5. Elastic Cloud Server (ECS) creation
-6. Private Image (IMS) creation
-7. Elastic Load Balance (ELB) creation
-8. Auo Scalling (AS) creation 
-9. Stress test
-10. Resources deletion
+1. Network creation
+1. Security groups creation
+1. Elastic Cloud Server (ECS) creation
+1. Private Image (IMS) creation
+1. Elastic Load Balance (ELB) creation
+1. Auto Scalling (AS) creation
+1. Stress test
+1. Resources deletion
 
 ## Key-pairs creation
 
 Basic Informations:
+
 * Name: **kp_stud0x**
 * Download the private key file
 
-## Network creation: Virtual Private Cloud (VPC) and Subnet creation 
+## Network creation: Virtual Private Cloud (VPC) and Subnet creation
 
 Basic Informations:
+
 * Region: **Student Project**
 * Name: **vpc_stud0x**
 * CIDR Block: **192.168.0.0/16**
 * Tag: key=**owner**;value=**stud0x**
-* Default Subnet: 
-  * AZ: **eu-west-0a**
+* Default Subnet:
   * Name: **subnet-front-stud0x**
-  * CIDR Block: **192.168.0.0/24** 
+  * CIDR Block: **192.168.0.0/24**
+  * Tag: key=**owner**;value=**stud0x**
 
 ## Security groups creation
 
 Basic Informations:
+
 * Name: **sg_front_stud0x**
-  * Add  2 Inbound rules (Port **80**/source **"0.0.0.0/0"**; Port **22**/source **"0.0.0.0/0"**)
+* Template: **Custom**
+* Manage Rule :
+  * Add  2 Inbound rules (Port **80**/Type **IPv4**/source **"0.0.0.0/0"**/Description **Allow HTTP from everywhere**; Port **22**/Type **IPv4**/source **"0.0.0.0/0"**/Description **Allow SSH from everywhere**)
   
 ## Elastic Cloud Server (ECS) creation
 
-ECS creation preparation:
-Downloading apache2.sh file, from the desktop where you access the FE protal
-https://obs-formation-imt.oss.eu-west-0.prod-cloud-ocb.orange-business.com/obs-imt-lab2/Apache2.sh
-
 Basic Informations:
+
 * Region: **Student Project**
 * AZ: **eu-west-0a**
 * Flavor: **s3.small.1**
 * Image: **Public image**
-  * **OBS Ubuntu 16.04(40GB)**
-* Disk: **Common I/O 40GB**
+  * **OBS Ubuntu 22.04(40GB)**
+* System Disk: **Common I/O 40GB**
 * VPC: **vpc_stud0x**
-* Primary NIC: **subnet-front-stud0x**
+* Primary NIC: **subnet-front-stud0x - Automatically assign IP address**
 * Security Goup: **sg_front_stud0x**
 * EIP: **Automatically assign**
-* Bandwith: **100 Mbit/s**
-* Key pair: **kp_stud0x**
-* Advanced Settings: **Configure now**
-* User Data injection: **As file**
-  * Select File: **Apache2.sh**
-* Tag: key=**owner**;value=**stud0x** 
+* Bandwith: **1000 Mbit/s**
 * ECS Name: **ecs_stud0x**
+* Key pair: **kp_stud0x**
+* Cloud Backup Recovery: **Do not use**
+* Advanced Settings: **Configure now**
+  * User Data: **As text**
+
+    ```bash
+    #!/bin/bash
+
+    sudo apt update
+    sudo apt install apache2 -y
+    sudo systemctl restart apache2
+
+    ```
+
+* Tag: key=**owner**;value=**stud0x**
+* No Agency
 
 Apache installation verification:
 
@@ -88,77 +103,91 @@ http://\<EIP\>
 ## Private Image (IMS) creation
 
 1. First off all, stop the stud0x ECS
-2. Detach the EIP from the stud0x ECS
-3. Private Image creation:
-  * Basic Informations
-    * Type: **System disk image** 
-    * Source: **ECS**
-    * ECS: **ecs_stud0x**
-    * Name: **img-ecs-stud0x** 
-      * Tag: key=**owner**;value=**stud0x** 
+1. Detach the EIP from the stud0x ECS
+1. Private Image creation:
 
-## Elastic Load Balance (ELB) creation 
+    * Basic Informations
+      * Type: **System disk image**
+      * Source: ECS: **ecs_stud0x**
+      * Name: **img-ecs-stud0x**
+        * Tag: key=**owner**;value=**stud0x**
+
+## Elastic Load Balancer (ELB) creation
 
 Basic Informations:
-* **Create Elastic Load Balancer** 
+
+* Create Elastic Load Balancer
+* Type: **Shared**
 * Region:  **Student Project**
-* Name: **elb_stud0x**
 * Network Type: **Public network**
 * VPC: **vpc_stud0x**
+* Subnet: **subnet_front_stud0x**
 * EIP: **Use existing** (select the EIP)
+* Name: **elb_stud0x**
+* Tag: key=**owner**;value=**stud0x**
 * **Create Now**
-* Select the Elastic ELB **elb_stud0x**
+
+* Select the ELB **elb_stud0x**
   * **Add Listeners**
   * Name: **listener_stud0x_web**
   * Frontend Protocol/Port: **HTTP/80**
-  * Backend Protocol/Port: **HTTP/80**
-  * Load Balancing Algorithm: **Weighted round robin**
+  * Access Policy: **All IP addresses**
+  * Timeout(s): **60**
+  * Create new Backend Server Group: **server_group_http_stud0x**
+  * Backend Protocol/Port: **HTTP**
+  * Load Balancing Algorithm: **Weighted Round Robin**
   * Sticky Session: **no**
+  * No Backend Servers
   * Health Check Protocol/Port: **HTTP/80**
-  * Interval (s): **5**
-  * Timeout (s): **10**
-  * Healthy Threshold: **3**
-  * Unhealthy Threshold: **3**
   * Check Path: **/**
-* Select the Classic ELB **elb_stud0x**
+  * Interval (s): **5**
+  * Timeout(s): **3**
+  * Maximum Retries: **3**
+* Select the ELB **elb_stud0x**
   * **Add Listeners**
   * Name: **listener_stud0x_ssh**
   * Frontend Protocol/Port: **TCP/22**
-  * Backend Protocol/Port: **TCP/22**
-  * Load Balancing Algorithm: **Weighted round robin**
+  * Access Policy: **All IP addresses**
+  * Timeout(s): **300**
+  * Create new Backend Server Group: **server_group_ssh_stud0x**
+  * Backend Protocol/Port: **TCP**
+  * Load Balancing Algorithm: **Weighted Round Robin**
   * Sticky Session: **yes**
-  * Stickiness Duration (min): **5** 
+  * Stickiness Duration (min): **5**
   * Health Check Protocol/Port: **TCP/22**
   * Interval (s): **5**
-  * Timeout (s): **10**
-  * Healthy Threshold: **3**
-  * Unhealthy Threshold: **3**
+  * Timeout (s): **3**
+  * Maximum Retries: **3**
 
-## Auto Scalling (AS) creation
+## Auto Scaling (AS) creation
 
 Basic Informations:
-* Create AS Groups 
+
+* Create AS Groups
   * Region: **Student Project**
+  * AZ: **eu-west-0a and eu-west-0c**
   * Name: **as-group-stud0x**
   * Max. Instances: **3**
   * Expected Instances: **1**
   * Min. Instances: **1**
-  * AZ: **eu-west-0a and eu-west-0b**
   * VPC: **vpc_stud0x**
   * Subnet: **subnet-front-stud0x**
   * Load Balancing: **Enhanced load balancer**
     * Load Balancer: **elb_stud0x**
-    * Listener: **listener_stud0x_ssh**
-  * Load Balancing: **Classic load balancer**
+    * Backend ECS Group: **ecs_group_ssh_stud0x**
+    * Backend Port: 22
+  * Load Balancing: **Add Load Balancer**
     * Load Balancer: **elb_stud0x**
-    * Listener: **listener_stud0x_web**
-  * Health Check Method: **ELB health check**
-  * Health Check Interval: **5 minutes**
+    * Backend ECS Group: **ecs_group_http_stud0x**
+    * Backend Port: 80
   * Instance Removal Policy: **Oldest Instance created from on the oldest AS configuration**
-  * Release EIP on Instance Removal: **Yes**
-* ADD AS Configuration 
+  * EIP: **Release**
+  * Health Check Method: **ELB health check**
+  * Health Check Interval: **15 minutes**
+* ADD AS Configuration
+  * AS Configuration: **Create**
   * Name: **as-config-stud0x**
-  * Configuration Template: **Create a new specification template**
+  * Configuration Template: **Create a new template**
   * ECS Type: **s3.small.1**
   * **Private Image**
   * Image: **img-ecs-stud0x(40 GB)**
@@ -168,11 +197,18 @@ Basic Informations:
   * Key Pair: **kp_stud0x**
   * Advanced Settings: **Configure now**
     * **As text**
-```
-#!/bin/bash
-sudo sed -i -e "s/It works/$HOSTNAME \: It works/" /var/www/html/index.html 
-```
-* Add AS Policy 
+
+    ```bash
+    #!/bin/bash
+
+    # Cloud user password initialization (useful for ECS Remote Login with English Keyboard, if required)
+    sudo usermod -p $(openssl passwd -1 "P@ssword1234") "cloud"
+
+    sudo sed -i -e "s/It works/$HOSTNAME \: It works/" /var/www/html/index.html
+
+    ```
+
+* Add AS Policy
   * Policy Name: **as-policy-cpu-usage**
   * Policy Type: **Alarm**
   * Alarm Rule: **Create**
@@ -181,18 +217,12 @@ sudo sed -i -e "s/It works/$HOSTNAME \: It works/" /var/www/html/index.html
   * Monitoring Interval: **5 minutes**
   * Consecutive Occurences: **1**
   * Scaling Action: **Add 1 instances**
-  * Cooldown Period(s): **300**
+  * Cooldown Period(s): **120**
 
 Verification:
 http://\<ELB EIP\>
 
-## Stress test
-
-### ECS creation preparation:
-Downloading *Bench.sh file*, from the desktop where you access the FE protal:
-https://obs-formation-imt.oss.eu-west-0.prod-cloud-ocb.orange-business.com/obs-imt-lab2/Bench.sh
-
-### Stress environnement deployment:
+### Stress Test - environnement deployment:
 
 #### Virtual Private Cloud (VPC) and Subnet creation
 
@@ -202,67 +232,81 @@ Basic Informations:
 * Name: CIDR Block: **172.16.0.0/24**
 * Tag key: **owner**; Tag value: **stud0x**
 * Default Subnet:
-  * AZ: **eu-west-0a**
   * Name: **subnet-bench-stud0x**
   * CIDR Block: **172.16.0.0/24**
 
 #### ECS creation
 
 Basic Informations:
+
 * Region: **Student Project**
 * AZ: **eu-west-0a**
 * Flavor: **s3.xlarge.4**
 * Image: **Public image**
-  * **OBS Ubuntu 18.04(40GB)**
+  * **OBS Ubuntu 22.04(40GB)**
+* System Disk: **Common I/O 40GB**
 * VPC: **vpc_bench_stud0x**
 * Primary NIC: **subnet-bench-stud0x**
 * Security Goup: **sg_front_stud0x**
 * EIP: **Automatically assign**
 * Bandwith: **1000 Mbit/s**
 * Key pair: **kp_stud0x**
+* Cloud Backup Recovery: **Do not use**
 * Advanced Settings: **Configure now**
-* User Data injection: **As file**
-  * Select File: **benchVM.sh**
+  * User Data: **As text**
+
+    ```bash
+    #!/bin/bash
+
+    sudo apt update
+    sudo apt install apache2-utils -y
+
+    # Cloud user password initialization (useful for ECS Remote Login with English Keyboard, if required)
+    sudo usermod -p $(openssl passwd -1 "P@ssword1234") "cloud"
+   
+    ```
+
 * Tag key: **owner**; Tag value: **stud0x**
 * ECS Name: **ecs_bench_stud0x**
 
 #### Connect to ECS
 
 1. Accessing the created ECS  ecs_bench_stud0x (with ECS EIP) and Apache server (with ELB EIP): [Logging in to an ECS](https://docs.prod-cloud-ocb.orange-business.com/en-us/usermanual/ecs/en-us_topic_0092494193.html)
+1. From Apache server session launch this command:
 
-2. From Apache server session launch this command:
-```
-top
-```
-3. From ECS  ecs_bench_stud0x session launch this command after replacing \<ELB EIP\> with the right EIP: 
-```
-while (true); do ab -k -n 100000000 -c 1010 http://<ELB EIP>/index.html; done
-```
-4. Notice the cpu consumption increase on Apache server and also the CPU Usage of AS GROUPs *as-group-stud0x* (AS GROUPS + as-group-stud0x + Monitoring) .
+    ```shell
+    top
+    ```
 
-5. After few minutes, notice the increase of Number of instances (AS GROUPS + as-group-stud0x + Monitoring).
+1. From ECS  ecs_bench_stud0x session launch this command after replacing \<ELB EIP\> with the right EIP:
 
-6. stop the **ecs_bench_stud0x**
+    ```shell
+    while (true); do ab -k -n 30000000 -c 1000 http://<ELB EIP>/index.html || break; done
+    ```
 
-7. In a HTTP navigator reload several time the page http://\<ELB EIP\>, and notice the change of ECS in the top of the page
+1. Notice the cpu consumption increase on Apache server and also the CPU Usage of AS GROUPs *as-group-stud0x* (AS GROUPS + as-group-stud0x + Monitoring) .
+1. After few minutes, notice the increase of Number of instances (AS GROUPS + as-group-stud0x + Monitoring).
+1. stop the **ecs_bench_stud0x**
+1. In a HTTP navigator reload several time the page http://\<ELB EIP\>, and notice the change of ECS in the top of the page
 
 ## Resources deletion
 
 Control the resources created:
+
 * go to *"My Resources"*
 
 Resources deletion:
-1. Auto Scaling (AS)
-  * Modify the AS Group configuration
-    * Expected Instances: 0 
-    * Min. Instances: 0
-2. Image Management Service (IMG)
-3. Elastic Cloud Server (ECS)
-4. Auto Scaling
-  * AS Groups
-  * AS Configuration
-5. Elastic Load Balance (ELB)
-6. Security Groups (SG)
-7. Subnets
-8. Virtual Private Cloud (VPC)
 
+1. Auto Scaling (AS)
+    * Modify the AS Group configuration
+      * Expected Instances: 0
+      * Min. Instances: 0
+1. Image Management Service (IMG)
+1. Elastic Cloud Server (ECS)
+1. Auto Scaling
+    * AS Groups
+    * AS Configuration
+1. Elastic Load Balance (ELB)
+1. Security Groups (SG)
+1. Subnets
+1. Virtual Private Cloud (VPC)
