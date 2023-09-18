@@ -14,7 +14,7 @@ Requested FE Services:
 * 1 AS
 * 2 VPC
 * 2 Subnets
-* 2 SG
+* 1 SG
 
 ## Targeted architecture
 
