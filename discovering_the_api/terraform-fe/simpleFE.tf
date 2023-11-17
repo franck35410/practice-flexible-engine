@@ -1,7 +1,14 @@
 # Provider Settings
 ## flexibleengine
 #------------------
-
+terraform {
+  required_providers {
+    flexibleengine = {
+      source = "FlexibleEngineCloud/flexibleengine"
+      version = "1.43.0"
+    }
+  }
+}
 provider "flexibleengine" {
   user_name    = "${var.USERNAME}"
   password     = "${var.PASSWORD}"
