@@ -1,7 +1,14 @@
 # Provider Settings
 ## openstack
 #------------------
-
+terraform {
+  required_providers {
+    flexibleengine = {
+      source = "FlexibleEngineCloud/flexibleengine"
+      version = "1.43.0"
+    }
+  }
+}
 provider "openstack" {
   user_name    = "${var.USERNAME}"
   password     = "${var.PASSWORD}"
